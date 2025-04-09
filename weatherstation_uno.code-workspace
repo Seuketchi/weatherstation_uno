@@ -1,0 +1,15 @@
+{
+  "folders": [
+    {
+      "name": "weatherstation_uno",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "files.associations": {
+      "ets_sys.h": "c",
+      "liquidcrystal_i2c.h": "c",
+      "math.h": "c"
+    }
+  }
+}
