@@ -43,13 +43,13 @@ This project reads temperature and humidity data from a DHT11 sensor with checks
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/yourusername/avr-dht11-lcd-i2c.git
-   cd avr-dht11-lcd-i2c
+   git clone https://github.com/yourusername/weatherstation_uno.git
+   cd weatherstation_uno
 
 2. **Compile the Code:**
 
    ```bash
-    avr-gcc -mmcu=atmega328p -Os src/main.c src/dht11.c src/lcd_i2c.c src/i2c.c -I include -o main.elf
+    avr-gcc -mmcu=atmega328p -Os src/main.c src/dht.c src/lcd_i2c.c src/i2c.c -I include -o main.elf
     avr-objcopy -O ihex main.elf main.hex
    
 3. **Upload to Microcontroller**
@@ -69,7 +69,7 @@ You can simplify the build process by using a Makefile. Create a file named Make
     OBJCOPY = avr-objcopy
     CFLAGS = -mmcu=$(MCU) -Os -I include
     
-    SRC = src/main.c src/dht11.c src/lcd_i2c.c src/i2c.c
+    SRC = src/main.c src/dht.c src/lcd_i2c.c src/i2c.c
     
     all: $(TARGET).hex
     
