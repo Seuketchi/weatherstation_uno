@@ -1,4 +1,4 @@
-#ifdef LCD_I2C_H
+#ifndef LCD_I2C_H
 #define LCD_I2C_H
 
 #include <stdint.h>

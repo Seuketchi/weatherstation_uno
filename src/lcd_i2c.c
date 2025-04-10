@@ -1,5 +1,5 @@
-#include "i2c.h"
-#include "lcd_i2c.h"
+#include "includes/i2c.h"
+#include "includes/lcd_i2c.h"
 #include <util/delay.h>
 
 #define LCD_ADDR 0x27  // I2C Address of LCD
