@@ -1,9 +1,9 @@
 {
-  "C_Cpp_Runner.cCompilerPath": "/home/sketch/.platformio/packages/toolchain-atmelavr/bin/avr-gcc",
-  "C_Cpp_Runner.cppCompilerPath": "/home/sketch/.platformio/packages/toolchain-atmelavr/bin/avr-g++",
-  "C_Cpp_Runner.debuggerPath": "/home/sketch/.platformio/packages/toolchain-atmelavr/bin/avr-gdb",
-  "C_Cpp_Runner.cStandard": "gnu11",
-  "C_Cpp_Runner.cppStandard": "gnu++11",
+  "C_Cpp_Runner.cCompilerPath": "gcc",
+  "C_Cpp_Runner.cppCompilerPath": "g++",
+  "C_Cpp_Runner.debuggerPath": "gdb",
+  "C_Cpp_Runner.cStandard": "",
+  "C_Cpp_Runner.cppStandard": "",
   "C_Cpp_Runner.msvcBatchPath": "",
   "C_Cpp_Runner.useMsvc": false,
   "C_Cpp_Runner.warnings": [
@@ -37,18 +37,7 @@
   "C_Cpp_Runner.warningsAsError": false,
   "C_Cpp_Runner.compilerArgs": [],
   "C_Cpp_Runner.linkerArgs": [],
-  "C_Cpp_Runner.includePaths": [
-    "/home/sketch/Documents/PlatformIO/Projects/weatherstation_uno/include",
-    "/home/sketch/Documents/PlatformIO/Projects/weatherstation_uno/src",
-    "/home/sketch/.platformio/packages/framework-arduino-avr/cores/arduino",
-    "/home/sketch/.platformio/packages/framework-arduino-avr/variants/standard",
-    "/home/sketch/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
-    "/home/sketch/.platformio/packages/framework-arduino-avr/libraries/HID/src",
-    "/home/sketch/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
-    "/home/sketch/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
-    "/home/sketch/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
-    ""
-  ],
+  "C_Cpp_Runner.includePaths": [],
   "C_Cpp_Runner.includeSearch": [
     "*",
     "**/*"
