@@ -67,35 +67,39 @@ This project reads temperature and humidity data from a DHT11 sensor with checks
 You can simplify the build process by using a Makefile. Create a file named Makefile with the following content:
     ```bash
     
-    MCU = atmega328p
-    TARGET = main
-    CC = avr-gcc
-    OBJCOPY = avr-objcopy
-    CFLAGS = -mmcu=$(MCU) -Os -I include
+        ➜  build_scripts git:(main) ✗ make
+    avr-gcc -Wall -Os -DF_CPU=16000000 -mmcu=atmega328p -I../src -I../src/includes -I../src/peripherals -c ../src/peripherals/dht.c -o ../src/peripherals/dht.o
+    avr-gcc -Wall -Os -DF_CPU=16000000 -mmcu=atmega328p -I../src -I../src/includes -I../src/peripherals -c ../src/peripherals/i2c.c -o ../src/peripherals/i2c.o
+    avr-gcc -Wall -Os -DF_CPU=16000000 -mmcu=atmega328p -I../src -I../src/includes -I../src/peripherals -c ../src/peripherals/lcd_i2c.c -o ../src/peripherals/lcd_i2c.o
+    avr-gcc -Wall -Os -DF_CPU=16000000 -mmcu=atmega328p -I../src -I../src/includes -I../src/peripherals -c ../src/peripherals/uart.c -o ../src/peripherals/uart.o
+    avr-gcc -Wall -Os -DF_CPU=16000000 -mmcu=atmega328p -I../src -I../src/includes -I../src/peripherals -o main.elf ../src/main.o ../src/peripherals/dht.o ../src/peripherals/i2c.o ../src/peripherals/lcd_i2c.o ../src/peripherals/uart.o
+    avr-objcopy -j .text -j .data -O ihex main.elf main.hex
+    avr-size --format=avr --mcu=atmega328p main.elf
+    AVR Memory Usage
+    ----------------
+    Device: atmega328p
     
-    SRC = src/main.c src/dht.c src/lcd_i2c.c src/i2c.c
+    Program:    2786 bytes (8.5% Full)
+    (.text + .data + .bootloader)
     
-    all: $(TARGET).hex
+    Data:         82 bytes (4.0% Full)
+    (.data + .bss + .noinit)
     
-    $(TARGET).elf: $(SRC)
-    	$(CC) $(CFLAGS) $(SRC) -o $(TARGET).elf
     
-    $(TARGET).hex: $(TARGET).elf
-    	$(OBJCOPY) -O ihex $(TARGET).elf $(TARGET).hex
+    ➜  build_scripts git:(main) ✗ make flash
+    avrdude -c arduino -b 115200 -P /dev/ttyACM0 -p atmega328p -U flash:w:main.hex:i
+    avrdude OS error: cannot open port /dev/ttyACM0: No such file or directory
+    avrdude error: unable to open programmer arduino on port /dev/ttyACM0
     
-    upload: $(TARGET).hex
-    	avrdude -c usbasp -p m328p -U flash:w:$(TARGET).hex
+    avrdude done.  Thank you.
     
-    clean:
-    	rm -f $(TARGET).elf $(TARGET).hex
-    
-    .PHONY: all upload clean
+    make: *** [Makefile:45: flash] Error 1
 
 
 **Then run:**
 
   ```bash
-    avrdude -c usbasp -p m328p -U flash:w:main.hex
+make && make flash
   ```
 
 
