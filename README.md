@@ -2,6 +2,10 @@
 
 This project demonstrates how to read data from a DHT11 sensor and display temperature and humidity on an I2C-connected LCD using an AVR microcontroller (such as the ATmega328p). The code has been organized into modular components to improve readability, maintainability, and reusability.
 
+# Team Member
+- Tristan Jadman
+- Nassem Maruhom
+
 ## Table of Contents
 
 - [Project Overview](#project-overview)
